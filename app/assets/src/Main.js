@@ -59,6 +59,20 @@ const Main = async () => {
 
   // Write App
   App.innerHTML = appBody;
+
+  document.getElementById("subjectForm").addEventListener("submit", async (e) =>{
+    e.preventDefault();
+
+    const subjectValue = document.getElementById("subject").value;
+
+    if(subjectValue.length < 1) {
+      document.getElementById("error").innerHTML = "Preenchimento requerido";
+      return undefined;
+    }
+  
+    client.trigger("change", subjectValue);
+
+  })
 };
 
 export default Main;
