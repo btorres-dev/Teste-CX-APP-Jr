@@ -1,9 +1,11 @@
-const aNewFunction = () => {
-  // A content here
+const formatDate = (date) => {
+  const newDate = new Date(date);
+  const formattedDate = newDate.toLocaleString("pt-BR");
+  return formattedDate;
 };
 
 const Core = {
-  aNewFunction,
+  formatDate,
 };
 
 export default Core;
