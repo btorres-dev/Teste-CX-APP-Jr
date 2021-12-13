@@ -21,6 +21,23 @@ const Main = async () => {
   const newSubject = ticketSubject.replace(regex, "").trim();
   const subject = `${newSubject}  (${date})`;
 
+  // lista os últimos tickets do solicitante
+  const lastTickets = await client.request({ url: `/api/v2/search.json?query=type:ticket requester_id:${requesterId}`});
+  const listTickets = lastTickets.results.map(ticket =>{
+  const url =  ticket.url.replace("api/v2", "agent").split(".json")[0];
+   return (`<li key=${ticket.id}>
+      <a id="ticket-link" href="${url}" target="_blank">
+        <span>
+          Ticket ${ticket.id}: 
+        </span>
+        <span>
+          ${ticket.subject}
+        </span>
+      </a>
+    </li>`);
+  }).join("");
+
+
   let appBody = `
   <div id="main-content">
     <form id="subjectForm"> 
