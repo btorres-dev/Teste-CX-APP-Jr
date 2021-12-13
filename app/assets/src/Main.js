@@ -10,10 +10,16 @@ client.metadata().then((metadata) => {
 const Main = async () => {
   const App = document.getElementById("app");
 
-  const ticket = await client.get(["ticket.subject", "ticket.createdAt"])
-  const createdAt = ticket["ticket.createdAt"]
-  const date = Core.formatDate(createdAt)
-  const subject = `${ticket["ticket.subject"]}  ( ${date} )`
+  const ticket = await client.get(["ticket.subject", "ticket.createdAt", "ticket.requester.id"]);
+  const createdAt = ticket["ticket.createdAt"];
+  const ticketSubject = ticket["ticket.subject"]
+  const requesterId = ticket["ticket.requester.id"]
+
+  //formata assunto + data e hora
+  const date = Core.formatDate(createdAt);
+  const regex = /\(\d{2}(\/?)\d{2}?\1\d{4} \d{2}(\:?)\d{2}(\:?)\d{2}\)/gmi; // formato (dd/mm/aaaa hh:mm:ss)
+  const newSubject = ticketSubject.replace(regex, "").trim();
+  const subject = `${newSubject}  (${date})`;
 
   let appBody = `
   <div id="main-content">
