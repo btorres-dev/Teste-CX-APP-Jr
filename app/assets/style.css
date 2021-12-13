@@ -4,3 +4,38 @@
 html {
   overflow-y: auto;
 }
+
+.subjectArea{
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+
+}
+
+.subjectTitle{
+  margin-bottom: 1rem;
+}
+.subjectLabel{
+  font-size: 0.9rem;
+}
+
+#subject{
+  width: 18rem;
+}
+
+.btnSubject {
+  margin-top: 1rem;
+  width: 6rem;
+  height: 2rem;
+  color: #fff;
+  background-color: #236e93;
+  border: none;
+  border-radius: 0.3rem;
+}
+.btnSubject:hover{
+  background-color: #2d82ac;
+}
+#error {
+  color: red
+}

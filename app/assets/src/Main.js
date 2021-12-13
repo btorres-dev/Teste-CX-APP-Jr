@@ -24,10 +24,12 @@ const Main = async () => {
   let appBody = `
   <div id="main-content">
     <form id="subjectForm"> 
-      <div>
-        <h2> Alterar assunto para o formato padrão (assunto + data e hora)</h2>
-        <input id="subject" type="text" value="${subject}" type="text" placeholder="assunto + data e hora"/>
-        <button type="submit">Alterar<button>
+      <div class="subjectArea">
+        <h2 class="subjectTitle"> Alterar assunto para formato padrão:</h2>
+        <label class="subjectLabel">Assunto + (dd/mm/aaaa hh:mm:ss)</label>
+        <input id="subject" type="text" value="${subject}" type="text" placeholder="assunto + (dd/mm/aaaa hh:mm:ss)"/>
+        <span id="error"></span>
+        <button class="btnSubject" type="submit">Alterar</button>
       </div>
     </form>
     <div>
