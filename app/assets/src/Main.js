@@ -49,8 +49,11 @@ const Main = async () => {
         <button class="btnSubject" type="submit">Alterar</button>
       </div>
     </form>
-    <div>
-      <h3>Listar ultimos tickets</h3>
+    <div class="lastTickets">
+      <h2 class="lastTicketsTitle">Últimos tickets do solicitante:</h2>
+      <ul>
+        ${listTickets}
+      </ul>
     </div>
   </div>`;
 
