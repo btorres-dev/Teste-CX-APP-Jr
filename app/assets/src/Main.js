@@ -9,6 +9,12 @@ client.metadata().then((metadata) => {
 
 const Main = async () => {
   const App = document.getElementById("app");
+
+  const ticket = await client.get(["ticket.subject", "ticket.createdAt"])
+  const createdAt = ticket["ticket.createdAt"]
+  const date = Core.formatDate(createdAt)
+  const subject = `${ticket["ticket.subject"]}  ( ${date} )`
+
   let appBody = `
   <div id="main-content">
     <form id="subjectForm"> 
